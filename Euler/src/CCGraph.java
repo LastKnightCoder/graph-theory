@@ -59,7 +59,7 @@ public class CCGraph {
     public static void main(String[] args) {
         Graph graph = new AdjSet("g.txt");
         CCGraph ccGraph = new CCGraph(graph);
-//        ccGraph.dfs();
+        ccGraph.dfs();
         int cccount = ccGraph.getCCcount();
         System.out.println(cccount);
 
