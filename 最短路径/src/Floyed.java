@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class Floyed {
     private WeightedGraph graph;
     private int[][] dis;
+    private boolean hasNegativeCycle = false;
 
     public Floyed(WeightedGraph graph) {
         this.graph = graph;
@@ -29,6 +30,20 @@ public class Floyed {
                 }
             }
         }
+
+        for (int v = 0; v < graph.V(); v++) {
+            if (dis[v][v] < 0) {
+                hasNegativeCycle = true;
+            }
+        }
+    }
+
+    public int dis(int v, int w) {
+        return dis[v][w];
+    }
+
+    public boolean isHasNegativeCycle() {
+        return hasNegativeCycle;
     }
 
     public static void main(String[] args) {
